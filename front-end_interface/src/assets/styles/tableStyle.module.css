@@ -1,0 +1,47 @@
+.mainTable tfoot,
+.mainTable thead {
+    backdrop-filter: blur(5px);
+    position: sticky;
+}
+.mainTable thead {
+    top: 0;
+}
+
+.mainTable tfoot {
+    bottom: 0;
+}
+
+.mainTable td,
+.mainTable tbody tr {
+    padding-block: 0 !important;
+    border-bottom: none !important;
+}
+
+.centerThead tr th {
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.tbody table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed; /* make the table have same fixed width on all cells */
+}
+
+.tbody td {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.tbody td,
+.tbody td > * {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.tfoot tr td > * {
+    padding-block: 0.25rem; /* add height to the footer */
+}

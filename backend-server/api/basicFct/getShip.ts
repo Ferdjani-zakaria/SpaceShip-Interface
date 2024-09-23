@@ -1,0 +1,24 @@
+import api from "@api/apiConfig";
+import { AxiosRequestConfig } from "axios";
+
+export const getShip = async (
+    shipyardWaypointSymbol: string,
+    shipType: string
+): Promise<any> => {
+    const options: AxiosRequestConfig = {
+        method: "POST",
+        url: "/my/ships",
+        data: {
+            shipType,
+            waypointSymbol: shipyardWaypointSymbol,
+        },
+    };
+
+    try {
+        const { data } = await api.request(options);
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw error; // Re-throw the error to propagate it further if needed
+    }
+};
