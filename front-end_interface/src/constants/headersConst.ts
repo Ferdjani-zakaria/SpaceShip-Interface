@@ -10,3 +10,9 @@ export const WaypointsTableHeaders = [
     "Modifiers",
     "ChartOwner",
 ];
+export const marketTableHeaders = [
+    "Symbol",
+    "Exports",
+    "Imports",
+    "Exchange",
+];
