@@ -39,9 +39,10 @@ const TableLayer = ({ headers, meta, children, changeDisplay }: TableLayerProps)
                 boxShadow: "sm",
                 borderRadius: "sm",
                 textAlign: "center",
-                maxHeight: "450px",
+                maxHeight: "75vh",
                 overflowY: "scroll",
                 backgroundColor: "#724bff33",
+
             }}
         >
             <Table
