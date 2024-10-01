@@ -18,10 +18,12 @@ function GameInfoDisplay() {
                 .then((res) => {
                     setGameInfo(res.data);
                     setLoading(false);
+                    console.log(res.data.resetDate);
                 })
                 .catch((err) => {
                     console.error("Error fetching game information:", err);
                 });
+              
         };
 
         fetchGameInfo();

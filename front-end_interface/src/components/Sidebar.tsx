@@ -11,9 +11,10 @@ import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 
 interface SidebarProps {
     setSubPage: (page: string) => void;
+    wideScreen: boolean;
 }
 
-const Sidebar: FC<SidebarProps> = ({ setSubPage }) => {
+const Sidebar: FC<SidebarProps> = ({ setSubPage,wideScreen }) => {
     const [selectedIndex, setSelectedIndex] = useState<string | null>("Overview");
     const icons = [
         <PersonIcon key="person" sx={{ color: "#ffd700" }} />,
@@ -29,9 +30,9 @@ const Sidebar: FC<SidebarProps> = ({ setSubPage }) => {
     };
 
     return (
-        <Box className={styles.box}>
-            <List>
-                {["Overview", "Contracts", "Fleet", "Systems", "Shipyards", "Markets"].map(
+        <Box className={styles.box} fontStyle={{margin: wideScreen? "0 auto 3rem ":"0",}}>
+            <List sx={{display: "flex", flexDirection: wideScreen ? "row" : "column",}}>
+                {["Overview", "Contracts", "Fleet", "Systems","Markets", "Shipyards" ].map(
                     (text, index) => (
                         <ListItem key={text}>
                             <Tooltip title={text} placement="right" variant="soft">

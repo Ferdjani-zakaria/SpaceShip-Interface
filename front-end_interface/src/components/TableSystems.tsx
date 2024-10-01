@@ -17,7 +17,6 @@ interface Data {
 
 interface TableProps {
     data: Data[];
-
     listWaypoints(symbol: string): void;
 }
 

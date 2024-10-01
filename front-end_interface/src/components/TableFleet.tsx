@@ -4,6 +4,7 @@ import { IconButton, Table, Sheet, Typography } from "@mui/joy";
 
 // components
 import TableLayer from "@components/commun/TableLayer";
+import ShipModel from "./commun/shipModel";
 
 // interfaces
 import type { Ship } from "interfaces/playerInfo/shipInterface";
@@ -15,6 +16,7 @@ import { fleetTableHeaders } from "@const/headersConst";
 // icons
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 
 const RowDetails = ({
     open,
@@ -39,7 +41,7 @@ const RowDetails = ({
                         sx={{
                             pl: 10,
                             display: "flex",
-                            gap: "0.8rem",
+                            gap: "0.8rem",    
                         }}
                     >
                         <Typography
@@ -61,7 +63,7 @@ const RowDetails = ({
                             variant="soft"
                             color="primary"
                         >
-                            <thead>
+                            <thead style={{ fontSize:"0.9rem"}}>
                                 <tr>
                                     {headers.map((header, index) => (
                                         <th key={index}>{header}</th>
@@ -72,10 +74,10 @@ const RowDetails = ({
                                         ))}
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody >
+                                <tr >
                                     {values.map((value, cellIndex) => (
-                                        <td key={cellIndex}>{value || "0 or Unknown"}</td>
+                                        <td key={cellIndex} style={{ fontSize:"0.8rem"}}>{value || "0 or Unknown"}</td>
                                     ))}
                                 </tr>
                             </tbody>
@@ -94,7 +96,8 @@ function Row(props: { ship: Ship; initialOpen?: boolean }) {
     return (
         <Fragment>
             <tr>
-                <td>
+                <td style={{display:"flex", justifyContent: "center", alignItems:"center"}}>
+                    <ShipModel />
                     <IconButton
                         aria-label="expand row"
                         variant="plain"
@@ -119,11 +122,11 @@ function Row(props: { ship: Ship; initialOpen?: boolean }) {
             <RowDetails
                 open={open}
                 colSpan={7}
-                headers={["Current(required)/max", "Morale(max 100)", "Rotation", "Wages"]}
+                headers={["Current(req)/max", "Morale", "Rotation", "Wages"]}
                 name={"Crew"}
                 values={[
                     `${ship.crew.current}(${ship.crew.required})/${ship.crew.capacity}`,
-                    ship.crew.morale,
+                    `${ship.crew.morale}/100`,
                     ship.crew.rotation,
                     ship.crew.wages,
                 ]}

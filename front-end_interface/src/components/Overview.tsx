@@ -32,7 +32,7 @@ function Overview() {
                 padding: "2rem",
                 border: " 1px solid #ffffff",
                 color: "white",
-                minHeight: "93vh",
+                height: "70vh"
             }}
         >
             <div style={{ border: "1px solid #fff" }}>
