@@ -12,9 +12,10 @@ const theme = extendTheme({
                     600: "#ffd700",
                 },
                 success: {
+                    700:"#491b71",
                     600: "#000",
                     500: "#1e90ff", // Custom blue color
-                    200: "#724bff10",
+                    200: "#00000095",
                     100: "#ccc",
                 },
                 warning: {
@@ -47,7 +48,13 @@ const theme = extendTheme({
                     "& thead": {
                         color: theme.vars.palette.success[500],
                         BorderBottom: `20px solid ${theme.vars.palette.success[100]}`,
-                        "& tr": {},
+                        backgroundColor: theme.vars.palette.success[700],
+                        "& tr": {
+                            backgroundColor: theme.vars.palette.success[700],
+                        },
+                        "& td": {
+                            backgroundColor: theme.vars.palette.success[700],
+                        },
                     },
 
                     "& tbody": {
@@ -55,7 +62,6 @@ const theme = extendTheme({
                         "--unstable_TableCell-height": "30px",
                         "& td": {
                             color: theme.vars.palette.warning[500],
-                            // color: theme.vars.palette.success[500], // Table cell text color
                             borderBottom: `1px solid ${theme.vars.palette.success[700]}`, // Cell borders
                         },
                         "& tr:hover": {
@@ -66,19 +72,42 @@ const theme = extendTheme({
                         },
                     },
                     "& tfoot": {
-                        backgroundColor: theme.vars.palette.success[200], // Change footer background here
+                        // backgroundColor: theme.vars.palette.success[500], // Change footer background here
                         "& tr": {
                             color: theme.vars.palette.warning[500],
-                            backgroundColor: theme.vars.palette.success[200], // Footer background
+                            
                         },
                         "& td": {
                             color: theme.vars.palette.warning[500],
-                            backgroundColor: theme.vars.palette.success[200], // Footer background
+                            backgroundColor: theme.vars.palette.success[700], // Footer background
                         },
                     },
                 }),
             },
         },
+
+        JoyInput: {
+            styleOverrides: {
+                root: {
+                    fontSize: ["1rem", "1.2rem", "1.4rem"], // [sm, md, lg]
+                },
+            },
+        },
+        JoyButton: {
+            styleOverrides: {
+                root: {
+                    fontSize: ["1.5rem", "1.2rem", "1.4rem"], // [sm, md, lg]
+                },
+            },
+        },
+        JoySelect: {
+            styleOverrides: {
+                root: {
+                    fontSize: ["1.5rem", "1.2rem", "1.4rem"], // [sm, md, lg]
+                },
+            },
+        },
+        
     },
 });
 
