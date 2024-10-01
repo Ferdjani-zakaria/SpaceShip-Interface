@@ -1,6 +1,6 @@
 import api from "@api/apiConfig";
 import { AxiosRequestConfig } from "axios";
-import Ship from "@interfaces/playerInfo/shipInterface";
+import {Ship} from "@interfaces/playerInfo/shipInterface";
 interface ShipData {
     data: Ship[];
 }
@@ -20,6 +20,6 @@ export const checkMyShips = async (token: string): Promise<any> => {
         return data;
     } catch (error) {
         console.error(error);
-        throw error; // Re-throw the error to propagate it further if needed
+        throw error; 
     }
 };

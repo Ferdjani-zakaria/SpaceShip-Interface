@@ -1,13 +1,15 @@
 import api from "../apiConfig";
 import { AxiosRequestConfig } from "axios";
+import Market from "@interfaces/playerInfo/marketInterface";
+
 
 export const checkMarket = async (
     systemSymbol: string,
-    asteroidFieldWaypointSymbol: string
-): Promise<any> => {
+    waypointSymbol: string
+): Promise<Market> => {
     const options: AxiosRequestConfig = {
         method: "GET",
-        url: `/systems/${systemSymbol}/waypoints/${asteroidFieldWaypointSymbol}/market`,
+        url: `/systems/${systemSymbol}/waypoints/${waypointSymbol}/market`,
     };
 
     try {
@@ -15,6 +17,6 @@ export const checkMarket = async (
         return data;
     } catch (error) {
         console.error(error);
-        throw error; // Re-throw the error to propagate it further if needed
+        throw error;
     }
 };
